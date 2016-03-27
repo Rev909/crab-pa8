@@ -10,34 +10,30 @@ module.exports = function(app, passport) {
     // =====================================
     // LOGIN ===============================
     // =====================================
-    // show the login form
     app.get('/sign_in', function(req, res) {
 
         // render the page and pass in any flash data if it exists
         res.render('sign_in.ejs', { message: req.flash('loginMessage') }); 
     });
 
-    // process the login form
-    // app.post('/login', do all our passport stuff here);
-
     // =====================================
-    // SIGNUP ==============================
+    // SIGNUP GET ==========================
     // =====================================
-    // show the signup form
     app.get('/create_account', function(req, res) {
 
         // render the page and pass in any flash data if it exists
         res.render('create_account.ejs', { message: req.flash('signupMessage') });
     });
-
-    // process the signup form
-    // app.post('/signup', do all our passport stuff here);
-
+    
     // =====================================
-    // PROFILE SECTION =====================
+    // SIGNUP POST ===============================
     // =====================================
-    // we will want this protected so you have to be logged in to visit
-    // we will use route middleware to verify this (the isLoggedIn function)
+    app.post('/create_account', passport.authenticate('local-signup', {
+        successRedirect: '/profile',
+        failureRedirect: '/create_account',
+        failureFlash : true
+    }));
+    
     app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile.ejs', {
             user : req.user // get the user out of session and pass to template

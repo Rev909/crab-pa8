@@ -1,3 +1,4 @@
+// app/models/user.js
 // load the things we need
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
@@ -6,11 +7,10 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local            : {
-        login        : String,
+        username     : String,
         email        : String,
         password     : String,
     }
-
 });
 
 // methods ======================
