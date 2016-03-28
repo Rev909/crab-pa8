@@ -188,8 +188,13 @@ h6 {
     }
 }
 
-footer {
+.footer {
     padding: 50px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
     background-color: #f8f8f8;
 }
 

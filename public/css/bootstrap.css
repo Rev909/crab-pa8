@@ -27,6 +27,8 @@ section,
 summary {
   display: block;
 }
+
+
 audio,
 canvas,
 progress,
@@ -3457,7 +3459,7 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-block {
   display: block;
-  width: 100%;
+  width: 20%;
 }
 .btn-block + .btn-block {
   margin-top: 5px;
